@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineFlow - Dashboard</title>
+</head>
+<body>
+
+    
+    <header>
+        <div>
+            <h1>DineFlow Restaurant Management</h1>
+        </div>
+        <div>
+            <input type="search" id="global-search" placeholder="Search orders, menu...">
+            <label for="global-search">Search</label>
+        </div>
+    </header>
+
+    
+    <nav>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#customers">Customers</a></li>
+            <li><a href="#revenue">Revenue</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+
+    
+    <main>
+        
+        <section>
+            <h2>Overview Statistics</h2>
+            <div>
+                <h3>Total Revenue</h3>
+                <p>₹45,230</p>
+            </div>
+            <div>
+                <h3>Total Orders</h3>
+                <p>128</p>
+            </div>
+            <div>
+                <h3>Active Tables</h3>
+                <p>14 / 20</p>
+            </div>
+            <div>
+                <h3>Pending Orders</h3>
+                <p>5</p>
+            </div>
+        </section>
+
+       
+        <section>
+            <h2>Recent Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-101</td>
+                        <td>Sakshi Singh</td>
+                        <td>Dine-in</td>
+                        <td>₹1,200</td>
+                        <td>Ready</td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-102</td>
+                        <td>RituRaj Singh</td>
+                        <td>Takeaway</td>
+                        <td>₹450</td>
+                        <td>Preparing</td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-103</td>
+                        <td>Sumayya Fatima</td>
+                        <td>Delivery</td>
+                        <td>₹890</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-104</td>
+                        <td>Swati Bhagat</td>
+                        <td>Dine-in</td>
+                        <td>₹2,100</td>
+                        <td>Pending</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </section>
+
+      
+        <section id="login">
+            <h2>Staff / Admin Login</h2>
+            <form>
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    
+    <footer>
+        <p>&copy; 2026 DineFlow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
