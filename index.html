@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    
+    <!-- Header / Top Bar -->
     <header>
         <div>
             <h1>DineFlow Restaurant Management</h1>
@@ -16,23 +16,25 @@
             <input type="search" id="global-search" placeholder="Search orders, menu...">
             <label for="global-search">Search</label>
         </div>
+        <div>
+            <a href="login.html">Logout / Login</a>
+        </div>
     </header>
 
-    
+    <!-- Navigation / Sidebar -->
     <nav>
         <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="index.html">Dashboard</a></li>
             <li><a href="#orders">Orders</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#customers">Customers</a></li>
             <li><a href="#revenue">Revenue</a></li>
-            <li><a href="#login">Login</a></li>
         </ul>
     </nav>
 
-    
+    <!-- Main Content Area -->
     <main>
-        
+        <!-- Section: 4 Stat Cards -->
         <section>
             <h2>Overview Statistics</h2>
             <div>
@@ -53,7 +55,7 @@
             </div>
         </section>
 
-       
+        <!-- Section: Data Table with 5 Sample Rows -->
         <section>
             <h2>Recent Orders</h2>
             <table>
@@ -95,31 +97,19 @@
                         <td>₹2,100</td>
                         <td>Pending</td>
                     </tr>
-                   
+                    <tr>
+                        <td>#ORD-105</td>
+                        <td>Amit Kumar</td>
+                        <td>Delivery</td>
+                        <td>₹670</td>
+                        <td>Completed</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
-
-      
-        <section id="login">
-            <h2>Staff / Admin Login</h2>
-            <form>
-                <div>
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-        </section>
     </main>
 
-    
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 DineFlow. All rights reserved.</p>
     </footer>
