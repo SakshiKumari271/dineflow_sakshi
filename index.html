@@ -13,18 +13,18 @@
         <h2>DineFlow</h2>
         <nav>
             <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Customers</a></li>
-                <li><a href="#">Revenue</a></li>
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="revenue.html">Revenue</a></li>
             </ul>
         </nav>
     </aside>
 
-    <!-- Sticky Top Bar -->
+    <!-- Sticky Top Bar with 3-Line Toggle Button -->
     <header>
-        <button id="sidebar-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.2rem;">☰</button>
+        <button id="sidebar-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--primary); font-weight: bold; padding: 4px 8px;">☰</button>
         <h1>Restaurant Dashboard</h1>
         <div class="user-actions">
             <input type="text" placeholder="Search orders, menu...">
@@ -39,51 +39,91 @@
             <div class="stat-card">
                 <h3>Total Revenue</h3>
                 <p>₹45,230</p>
+                <span class="trend positive">+12% from yesterday</span>
             </div>
             <div class="stat-card">
                 <h3>Total Orders</h3>
                 <p>128</p>
+                <span class="trend positive">+8 new today</span>
             </div>
             <div class="stat-card">
                 <h3>Active Tables</h3>
                 <p>14 / 20</p>
+                <span class="trend neutral">70% Occupied</span>
             </div>
             <div class="stat-card">
                 <h3>Pending Orders</h3>
                 <p>5</p>
+                <span class="trend warning">Needs attention</span>
             </div>
         </section>
 
         <!-- Two-Column Section (Chart Left, Activity Right) -->
         <div class="dashboard-grid">
+            <!-- Analytics Graph with visual mock bars -->
             <section class="chart-section">
                 <h2>Revenue Analytics</h2>
-                <div class="chart-placeholder">
-                    <p>[ Chart Placeholder - Analytics Graph ]</p>
+                <div class="chart-placeholder" style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 20px; position: relative;">
+                    <div style="position: absolute; top: 15px; left: 20px; font-size: 0.85rem; color: #776B65; font-weight: 500;">Weekly Performance (₹)</div>
+                    <!-- Mock Bar Chart UI -->
+                    <div style="display: flex; gap: 20px; align-items: flex-end; height: 150px; width: 80%; justify-content: space-around; border-bottom: 2px solid #D6C9BC; padding-bottom: 5px;">
+                        <div style="width: 25px; height: 40%; background-color: var(--accent); border-radius: 4px 4px 0 0; opacity: 0.8;"></div>
+                        <div style="width: 25px; height: 65%; background-color: var(--accent); border-radius: 4px 4px 0 0; opacity: 0.85;"></div>
+                        <div style="width: 25px; height: 50%; background-color: var(--accent); border-radius: 4px 4px 0 0; opacity: 0.8;"></div>
+                        <div style="width: 25px; height: 85%; background-color: var(--primary); border-radius: 4px 4px 0 0;"></div>
+                        <div style="width: 25px; height: 70%; background-color: var(--accent); border-radius: 4px 4px 0 0; opacity: 0.9;"></div>
+                        <div style="width: 25px; height: 95%; background-color: var(--primary); border-radius: 4px 4px 0 0;"></div>
+                    </div>
+                    <div style="display: flex; gap: 25px; font-size: 0.75rem; color: #776B65; margin-top: 8px;">
+                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
                 </div>
             </section>
 
+            <!-- Professional Recent Activity Feed Card -->
             <section class="activity-section">
                 <h2>Recent Activity</h2>
-                <ul class="activity-list">
-                    <li>#ORD-101 Payment received - ₹1,200</li>
-                    <li>#ORD-102 New takeaway order placed</li>
-                    <li>Table 4 checked out successfully</li>
-                    <li>#ORD-103 Delivery completed</li>
-                </ul>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon success">PAID</div>
+                        <div class="activity-details">
+                            <p class="activity-title">Payment received for #ORD-101</p>
+                            <span class="activity-time">₹1,200 • 2 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">NEW</div>
+                        <div class="activity-details">
+                            <p class="activity-title">New takeaway order placed</p>
+                            <span class="activity-time">#ORD-102 • 10 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon neutral">OUT</div>
+                        <div class="activity-details">
+                            <p class="activity-title">Table 4 checked out successfully</p>
+                            <span class="activity-time">Guest feedback: Excellent</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon warning">DLV</div>
+                        <div class="activity-details">
+                            <p class="activity-title">Delivery completed</p>
+                            <span class="activity-time">#ORD-103 • 25 mins ago</span>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
-    <!-- Optional JS for Bonus Sidebar Toggle -->
+    <!-- JS for Mobile Sidebar Slide-in Toggle -->
     <script>
         const toggleBtn = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
-        const body = document.body;
 
         toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            body.classList.toggle('sidebar-collapsed');
+            sidebar.classList.toggle('open');
         });
     </script>
 </body>

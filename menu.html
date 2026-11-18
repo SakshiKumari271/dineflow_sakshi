@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineFlow - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside id="sidebar">
+        <h2>DineFlow</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="customers.html">Customers</a></li>
+                <li><a href="revenue.html">Revenue</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <button id="sidebar-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--primary);">☰</button>
+        <h1>Cafe Menu Items</h1>
+        <div class="user-actions">
+            <input type="text" placeholder="Search...">
+            <a href="login.html">Log out</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Hazelnut Latte</h3>
+                <p>₹240</p>
+                <span style="font-size: 0.75rem; color: #2E7D32;">Best Seller</span>
+            </div>
+            <div class="stat-card">
+                <h3>Classic Cold Coffee</h3>
+                <p>₹190</p>
+                <span style="font-size: 0.75rem; color: #2E7D32;">Available</span>
+            </div>
+            <div class="stat-card">
+                <h3>Smoked Veg Burger</h3>
+                <p>₹260</p>
+                <span style="font-size: 0.75rem; color: #2E7D32;">Available</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+    </script>
+</body>
+</html>
