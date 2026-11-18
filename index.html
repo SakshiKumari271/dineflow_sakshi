@@ -1,136 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DineFlow - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div>
-            <h1>DineFlow Restaurant Management</h1>
-        </div>
-        <div>
-            <label for="global-search">Search</label>
-            <input type="search" id="global-search" placeholder="Search orders, menu...">
-        </div>
-        <div>
-            <a href="login.html">Log out</a>
-        </div>
-    </header>
-
-   
-    <aside>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <h2>DineFlow</h2>
         <nav>
             <ul>
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="#orders">Orders</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#customers">Customers</a></li>
-                <li><a href="#revenue">Revenue</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Revenue</a></li>
             </ul>
         </nav>
     </aside>
 
-    
+    <!-- Sticky Top Bar -->
+    <header>
+        <button id="sidebar-toggle" style="background: none; border: none; cursor: pointer; font-size: 1.2rem;">☰</button>
+        <h1>Restaurant Dashboard</h1>
+        <div class="user-actions">
+            <input type="text" placeholder="Search orders, menu...">
+            <a href="login.html">Log out</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
     <main>
-        
-        <section>
-            <h2>Overview Statistics</h2>
-            <div>
+        <!-- 4 Stat Cards in a Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
                 <h3>Total Revenue</h3>
                 <p>₹45,230</p>
             </div>
-            <div>
+            <div class="stat-card">
                 <h3>Total Orders</h3>
                 <p>128</p>
             </div>
-            <div>
+            <div class="stat-card">
                 <h3>Active Tables</h3>
                 <p>14 / 20</p>
             </div>
-            <div>
+            <div class="stat-card">
                 <h3>Pending Orders</h3>
                 <p>5</p>
             </div>
         </section>
 
-        
-        <section id="orders">
-            <h2>Recent Orders</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer Name</th>
-                        <th>Type</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#ORD-101</td>
-                        <td>Sakshi Singh</td>
-                        <td>Dine-in</td>
-                        <td>₹1,200</td>
-                        <td>Ready</td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-102</td>
-                        <td>RituRaj Singh</td>
-                        <td>Takeaway</td>
-                        <td>₹450</td>
-                        <td>Preparing</td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-103</td>
-                        <td>Sumayya Fatima</td>
-                        <td>Delivery</td>
-                        <td>₹890</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-104</td>
-                        <td>Swati Bhagat</td>
-                        <td>Dine-in</td>
-                        <td>₹2,100</td>
-                        <td>Pending</td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-105</td>
-                        <td>Amit Kumar</td>
-                        <td>Delivery</td>
-                        <td>₹670</td>
-                        <td>Completed</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <!-- Two-Column Section (Chart Left, Activity Right) -->
+        <div class="dashboard-grid">
+            <section class="chart-section">
+                <h2>Revenue Analytics</h2>
+                <div class="chart-placeholder">
+                    <p>[ Chart Placeholder - Analytics Graph ]</p>
+                </div>
+            </section>
 
-        
-        <section id="menu">
-            <h2>Menu</h2>
-            <p>Coming next...</p>
-        </section>
-
-        <section id="customers">
-            <h2>Customers</h2>
-            <p>Coming next...</p>
-        </section>
-
-        <section id="revenue">
-            <h2>Revenue</h2>
-            <p>Coming next...</p>
-        </section>
+            <section class="activity-section">
+                <h2>Recent Activity</h2>
+                <ul class="activity-list">
+                    <li>#ORD-101 Payment received - ₹1,200</li>
+                    <li>#ORD-102 New takeaway order placed</li>
+                    <li>Table 4 checked out successfully</li>
+                    <li>#ORD-103 Delivery completed</li>
+                </ul>
+            </section>
+        </div>
     </main>
 
-    
-    <footer>
-        <p>&copy; 2026 DineFlow. All rights reserved.</p>
-    </footer>
+    <!-- Optional JS for Bonus Sidebar Toggle -->
+    <script>
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const body = document.body;
 
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            body.classList.toggle('sidebar-collapsed');
+        });
+    </script>
 </body>
 </html>

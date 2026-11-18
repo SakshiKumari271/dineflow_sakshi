@@ -1,17 +1,11 @@
-/* ==========================================
-   DineFlow - Day 2 Design System & Styles
-   Coffee Latte & Warm Ivory Theme
-   ========================================== */
-
 :root {
-    --primary: #2C221E;   /* Deep Espresso sidebar */
-    --secondary: #FDFBF7; /* Warm Ivory background */
-    --surface: #FFFFFF;   /* Clean white cards */
-    --text: #2D2422;      /* Rich dark text */
-    --accent: #C86D51;    /* Muted terracotta / warm accent */
-    --border: #E8E2D9;    /* Soft warm border */
+    --primary: #2C221E;   
+    --secondary: #FDFBF7; 
+    --surface: #FFFFFF;   
+    --text: #2D2422;      
+    --accent: #C86D51;    
+    --border: #E8E2D9;    
     
-    /* Spacing tokens */
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 16px;
@@ -19,7 +13,6 @@
     --space-5: 32px;
 }
 
-/* Universal box-sizing rule */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,189 +23,171 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--secondary);
     color: var(--text);
-    line-height: 1.5;
     display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 60px 1fr;
     min-height: 100vh;
+    transition: grid-template-columns 0.3s ease;
 }
 
-/* --- Dashboard Header Styling --- */
-header {
-    grid-column: 2 / 3;
-    background-color: var(--surface);
-    padding: var(--space-3) var(--space-4);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Bonus: Collapsed sidebar state */
+body.sidebar-collapsed {
+    grid-template-columns: 60px 1fr;
 }
 
-/* --- Sidebar Styling (<aside> wrapper) --- */
+/* Sidebar */
 aside {
-    grid-row: 1 / 4;
+    grid-row: 1 / 3;
     background-color: var(--primary);
     color: #FFFFFF;
     padding: var(--space-4);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+}
+
+aside h2 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    white-space: nowrap;
+}
+
+aside.collapsed h2 {
+    display: none;
 }
 
 aside nav ul {
     list-style: none;
-    margin-top: var(--space-4);
 }
 
 aside nav ul li {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
 }
 
 aside nav ul li a {
     color: #FFFFFF;
     text-decoration: none;
     display: block;
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-2);
     border-radius: 6px;
+    white-space: nowrap;
     transition: background-color 0.2s ease;
 }
 
-/* Interactive Hover & Focus States */
 aside nav ul li a:hover,
-aside nav ul li a:focus,
-header a:hover,
-header a:focus {
-    background-color: rgba(200, 109, 81, 0.15);
+aside nav ul li a:focus {
+    background-color: rgba(200, 109, 81, 0.2);
     outline: 2px solid var(--accent);
 }
 
-/* --- Main Content Area --- */
+/* Sticky Top Bar */
+header {
+    grid-column: 2 / 3;
+    background-color: var(--surface);
+    padding: 0 var(--space-4);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.user-actions {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+.user-actions input {
+    padding: var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--secondary);
+}
+
+/* Main Content */
 main {
     grid-column: 2 / 3;
     padding: var(--space-4);
 }
 
-/* --- Card & Section Styling with Soft Shadows --- */
-section {
+/* 4 Stat Cards in a Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.stat-card {
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: var(--space-4);
-    margin-bottom: var(--space-4);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* --- Table Styling --- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: var(--space-2);
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: #776B65;
+    margin-bottom: var(--space-1);
 }
 
-th, td {
-    padding: var(--space-2) var(--space-3);
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-}
-
-th {
-    font-weight: 600;
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--primary);
 }
 
-/* --- Footer Styling --- */
-footer {
-    grid-column: 2 / 3;
+/* Two-Column Section Below */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-4);
+}
+
+.chart-section, .activity-section {
     background-color: var(--surface);
-    padding: var(--space-3) var(--space-4);
-    border-top: 1px solid var(--border);
-    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--space-4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.chart-placeholder {
+    height: 220px;
+    background-color: var(--secondary);
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--space-3);
+    color: #887C75;
+}
+
+.activity-list {
+    list-style: none;
+    margin-top: var(--space-3);
+}
+
+.activity-list li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--border);
     font-size: 0.9rem;
 }
 
-
-/* ==========================================
-   Bonus Login Page & State Styles
-   ========================================== */
-
-.login-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: var(--space-4);
-    grid-template-columns: 1fr; /* Override main grid for centered login */
+.activity-list li:last-child {
+    border-bottom: none;
 }
 
-.login-header {
-    grid-column: 1 / -1;
-    width: 100%;
-    max-width: 420px;
-    border-radius: 12px 12px 0 0;
-    text-align: center;
-}
-
-.login-card {
-    width: 100%;
-    max-width: 420px;
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 0 0 12px 12px;
-    padding: var(--space-5);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 0;
-}
-
-.form-group {
-    margin-bottom: var(--space-3);
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: var(--space-1);
-    font-weight: 500;
-    color: var(--text);
-}
-
-.form-group input {
-    width: 100%;
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-family: inherit;
-    background-color: var(--secondary);
-    color: var(--text);
-}
-
-/* Visible Focus Ring Requirement */
-input:focus, button:focus, a:focus {
-    outline: 3px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* Error State Requirement (Red border and message) */
-.input-error {
-    border-color: #dc3545 !important;
-    background-color: #fff8f8 !important;
-}
-
-.error-message {
-    color: #dc3545;
-    font-size: 0.85rem;
-    margin-top: var(--space-1);
-    display: block;
-}
-
-.btn-primary {
-    background-color: var(--primary);
-    color: #FFFFFF;
-    border: none;
-    padding: var(--space-2) var(--space-3);
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: var(--accent);
+/* Responsive breakpoint for smaller screens */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
 }
